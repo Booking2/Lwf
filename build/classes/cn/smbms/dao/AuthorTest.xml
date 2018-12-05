@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace类名路径 -->
+<mapper namespace="cn.smbms.dao.AuthorTest">
+	<!--type类路径id表名  -->
+	<resultMap type="cn.smbms.model.Author" id="authors">
+		<!-- property类的属性colmn数据库列 -->
+		<id property="aid" column = "id"/>
+		<result property="aname" column = "aName"/>
+	</resultMap>
+	
+	
+</mapper>
+
+
+

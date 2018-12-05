@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace类名路径 -->
+<mapper namespace="cn.smbms.dao.BlogTest">
+	<!--type类路径id表名  -->
+	<resultMap type="cn.smbms.model.Blog" id="Blogs">
+		<!-- property类的属性colmn数据库列 -->
+		<id property="id" column = "id"/>
+		<result property="title" column = "title"/>
+		<result property="context" column = "content"/>
+		
+		<association property="author" javaType="cn.smbms.model.Author"><!-- 多对一 -->
+			<id property="aid" column = "id"/>
+			<result property="aname" column = "aName"/>
+		</association>
+	</resultMap>
+	
+	<select id="allBlog" resultMap="Blogs"><!-- 多对一 -->
+		select blog.id,blog.title,blog.content ,author.id,author.aname from author , blog
+		where author.id = blog.authorid and author.id = 1
+	</select>
+	
+</mapper>
+
+
+
